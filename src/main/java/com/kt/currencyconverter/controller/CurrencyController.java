@@ -1,6 +1,6 @@
 package com.kt.currencyconverter.controller;
 
-import com.kt.currencyconverter.model.Currency;
+import com.kt.currencyconverter.currency.Currency;
 import com.kt.currencyconverter.service.CurrencyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

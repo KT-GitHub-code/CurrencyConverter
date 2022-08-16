@@ -1,8 +1,8 @@
 package com.kt.currencyconverter.service;
 
 import com.kt.currencyconverter.CurrencyConverterApplication;
-import com.kt.currencyconverter.model.Currency;
-import com.kt.currencyconverter.repository.CurrencyRepository;
+import com.kt.currencyconverter.currency.Currency;
+import com.kt.currencyconverter.currency.CurrencyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

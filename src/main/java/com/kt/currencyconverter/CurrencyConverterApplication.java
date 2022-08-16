@@ -1,18 +1,23 @@
 package com.kt.currencyconverter;
 
-import com.kt.currencyconverter.model.Currency;
-import com.kt.currencyconverter.repository.CurrencyRepository;
+import com.kt.currencyconverter.currency.Currency;
+import com.kt.currencyconverter.currency.CurrencyRepository;
+import com.kt.currencyconverter.wallet.Wallet;
+import com.kt.currencyconverter.wallet.WalletRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
 @SpringBootApplication
 public class CurrencyConverterApplication {
 
     @Autowired
     CurrencyRepository currencyRepository;
+
+    @Autowired
+    WalletRepository walletRepository;
+
 
     public static void main(String[] args) {
         SpringApplication.run(CurrencyConverterApplication.class, args);
@@ -75,6 +80,26 @@ public class CurrencyConverterApplication {
                     .conversionRateToUSD(1.06)
                     .build();
             currencyRepository.save(c5);
+
+            Wallet w1 = Wallet.builder()
+                    .owner("Mr.Moneybags")
+                    .EUR(100)
+                    .USD(150)
+                    .CHF(200)
+                    .JPY(250)
+                    .HUF(500)
+                    .build();
+            walletRepository.save(w1);
+
+            Wallet w2 = Wallet.builder()
+                    .owner("Tom")
+                    .EUR(1)
+                    .USD(2)
+                    .CHF(3)
+                    .JPY(4)
+                    .HUF(5)
+                    .build();
+            walletRepository.save(w2);
 
         };
     }
