@@ -4,29 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Entity
+@Document(collection = "wallet")
 public class Wallet {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     public String owner;
 
-    public double EUR;
-    public double USD;
-    public double HUF;
-    public double JPY;
-    public double CHF;
+    public double eur;
+    public double usd;
+    public double huf;
+    public double jpy;
+    public double chf;
 
 }

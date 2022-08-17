@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
 @SpringBootApplication
 public class CurrencyConverterApplication {
 
@@ -26,6 +27,8 @@ public class CurrencyConverterApplication {
     @Bean
     public CommandLineRunner init() {
         return args -> {
+
+            // Currencies
             Currency c1 = Currency.builder()
                     .name("Euro")
                     .symbol("EUR")
@@ -81,24 +84,12 @@ public class CurrencyConverterApplication {
                     .build();
             currencyRepository.save(c5);
 
-            Wallet w1 = Wallet.builder()
-                    .owner("Mr.Moneybags")
-                    .EUR(100)
-                    .USD(150)
-                    .CHF(200)
-                    .JPY(250)
-                    .HUF(500)
-                    .build();
+
+            // wallets
+            Wallet w1 = new Wallet("Mr.Moneybags",100.0,150.0,500.0,250.0,200.0);
             walletRepository.save(w1);
 
-            Wallet w2 = Wallet.builder()
-                    .owner("Tom")
-                    .EUR(1)
-                    .USD(2)
-                    .CHF(3)
-                    .JPY(4)
-                    .HUF(5)
-                    .build();
+            Wallet w2 = new Wallet("Tom",1.0,2.0,5.0,4.0,3.0);
             walletRepository.save(w2);
 
         };
