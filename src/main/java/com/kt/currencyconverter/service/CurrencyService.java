@@ -23,12 +23,6 @@ public class CurrencyService {
     private final boolean propertiesModeOn = false;
 
 
-    public Currency getCurrency(String symbol) {
-        return currencyRepository.findAll().stream()
-                .filter(c -> Objects.equals(c.getSymbol(), symbol))
-                .findFirst().orElse(null);
-    }
-
     public Currency getCurrencyBySymbol(String symbol) {
         return currencyRepository.findBySymbol(symbol);
     }
