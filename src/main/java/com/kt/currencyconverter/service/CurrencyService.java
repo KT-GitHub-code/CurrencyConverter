@@ -29,6 +29,10 @@ public class CurrencyService {
                 .findFirst().orElse(null);
     }
 
+    public Currency getCurrencyBySymbol(String symbol) {
+        return currencyRepository.findBySymbol(symbol);
+    }
+
     public List<String> getCurrenciesList() {
 
         List<Currency> currencies = currencyRepository.findAll();

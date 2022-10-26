@@ -19,7 +19,7 @@ public class CurrencyController {
 
     @GetMapping("currency/{symbol}")
     public Currency getCurrency(@PathVariable String symbol){
-        return currencyService.getCurrency(symbol);
+        return currencyService.getCurrencyBySymbol(symbol);
     }
 
     @GetMapping("symbols")
